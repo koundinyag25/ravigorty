@@ -1,20 +1,23 @@
 <div layout="column">
-    <md-toolbar style="background: #0097A7 ">
-        <div layout=" row " layout-padding layout-align="space-between center ">
-            <div>
-            </div>
-            <div class="nav-buttons ">
-                <md-button ng-repeat="button in buttons track by $index " ng-click="gotoSection(button.value) ">{{button.name}}</md-button>
-                <!-- <md-button href=" ">Home</md-button>
+    <header style="display:block; z-index:2 postion:fixeds">
+        <md-toolbar style="background: #0097A7 ">
+            <div layout=" row " layout-padding layout-align="space-between center ">
+                <div>
+                </div>
+                <div class="nav-buttons ">
+                    <md-button ng-repeat="button in buttons track by $index" ng-click="gotoSection(button.value)">{{button.name}}</md-button>
+                    <!-- <md-button href=" ">Home</md-button>
                 <md-button ng-click="gotoSection(value) " value="family-tree ">Family Tree</md-button>
                 <md-button ui-sref="gallery ">Gallery</md-button>
                 <md-button ui-sref="contactUs ">Contact Us</md-button> -->
 
+                </div>
             </div>
-        </div>
 
 
-    </md-toolbar>
+        </md-toolbar>
+    </header>
+
     <div style="height:600px; background:#00BCD4 " layout="row ">
         <md-card style="height: 500px; width:487px; margin:20px; ">
             <div style="background-image: url({{image}}); height: 500px; width:487px; "></div>
@@ -40,7 +43,7 @@
     </div>
 
     <!-- family tree section -->
-    <div id="family-tree " layout="column ">
+    <div id="family-tree" layout="column ">
         <div layout="row ">
             <div style="height:500px; width: 100% ">
                 <section layout="row " layout-align="center center ">
@@ -68,7 +71,7 @@
         <md-button class="md-fab fab-class " value="gallery "></md-button>
     </div>
 
-
+    <!-- gallery section  -->
 
     <div id="gallery " layout="row ">
         <div style="height:700px; width: 100% ">
@@ -130,4 +133,3 @@
 
 
 </div>
->
