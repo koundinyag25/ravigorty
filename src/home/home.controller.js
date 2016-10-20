@@ -22,6 +22,7 @@ $scope.buttons = [ { name: 'Home', value: 'home'},{ name:'Family Tree', value:'f
       console.log('go to section',x);
       $location.hash(x);
       $anchorScroll();
+      // $location.hash() = null;
       // scrollService.scrollTo(x);
 
 
