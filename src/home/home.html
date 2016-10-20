@@ -1,0 +1,133 @@
+<div layout="column">
+    <md-toolbar style="background: #0097A7 ">
+        <div layout=" row " layout-padding layout-align="space-between center ">
+            <div>
+            </div>
+            <div class="nav-buttons ">
+                <md-button ng-repeat="button in buttons track by $index " ng-click="gotoSection(button.value) ">{{button.name}}</md-button>
+                <!-- <md-button href=" ">Home</md-button>
+                <md-button ng-click="gotoSection(value) " value="family-tree ">Family Tree</md-button>
+                <md-button ui-sref="gallery ">Gallery</md-button>
+                <md-button ui-sref="contactUs ">Contact Us</md-button> -->
+
+            </div>
+        </div>
+
+
+    </md-toolbar>
+    <div style="height:600px; background:#00BCD4 " layout="row ">
+        <md-card style="height: 500px; width:487px; margin:20px; ">
+            <div style="background-image: url({{image}}); height: 500px; width:487px; "></div>
+        </md-card>
+        <md-divider style="height:510px; width:1px; background:#FFFFFF; margin-top:20px "></md-divider>
+        <div style="margin:30px ">
+            <h2 class="heading-font ">Ravi and Gorty</h2>
+
+            <p style="font-family: 'Cormorant Garamond', serif; color:#FFFFFF; font-size:20px; ">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem
+                Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </p>
+        </div>
+
+    </div>
+
+    <md-divider></md-divider>
+    <div layout="column " layout-align="center end ">
+        <md-button class="md-fab fab-class " style="background:#448AFF " value="family-tree " ng-click="gotoNextSection()"></md-button>
+    </div>
+
+    <!-- family tree section -->
+    <div id="family-tree " layout="column ">
+        <div layout="row ">
+            <div style="height:500px; width: 100% ">
+                <section layout="row " layout-align="center center ">
+
+                    <div layout="column " style="height:400px; width:300px; margin:20px; " layout-wrap>
+                        <h2 class="heading-font " style="color: #808080 ">Family Tree</h2>
+                        <p>This is the where you can find who and what and where of the whole gorty ravi family are</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        </p>
+                    </div>
+                    <md-divider style="height:400px; width: "></md-divider>
+                    <div layout="column ">
+                        <div style="margin:20px; " layout="row ">
+                            <h3>Here there will be a snapshot of family tree</h3>
+                        </div>
+                        <md-button style="background:#448AFF " ui-sref="familyTree ">view full family tree</md-button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <md-divider></md-divider>
+    <div layout="column " layout-align="center end ">
+
+        <md-button class="md-fab fab-class " value="gallery "></md-button>
+    </div>
+
+
+
+    <div id="gallery " layout="row ">
+        <div style="height:700px; width: 100% ">
+            <section layout="row " layout-align="center center ">
+                <div layout="column ">
+                    <div style="margin:20px; " layout="row ">
+                        <h3>Here there will cards with preview photos</h3>
+                    </div>
+
+                </div>
+                <md-divider style="height:400px; width: "></md-divider>
+                <div layout="column " style="height:400px; width:300px; margin:20px; " layout-wrap>
+                    <h2 class="heading-font " style="color: #808080 ">Gallery</h2>
+                    <p>This is the where you can find who and what and where of the whole gorty ravi family are</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                    </p>
+                    <md-button style="background:#448AFF " ui-sref="familyTree ">view full family tree</md-button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <md-divider></md-divider>
+    <div layout="column " layout-align="center end ">
+
+        <md-button ng-click="gotoNextSection() " class="md-fab fab-class " value="contactUs "></md-button>
+    </div>
+
+    <!-- contact us section -->
+
+    <div id="contactUs " layout="row ">
+        <div style="height:700px; width: 100% ">
+            <section layout="row " layout-align="center center ">
+                <div layout="column ">
+                    <div style="margin:20px; " layout="row ">
+                        <h3>Want to contact us?</h3>
+                    </div>
+
+                </div>
+                <md-divider style="height:400px; width: "></md-divider>
+                <div layout="column " style="height:400px; width:300px; margin:20px; " layout-wrap>
+                    <h2 class="heading-font " style="color: #808080 ">Gallery</h2>
+                    <p>Please fill in the below form with your contact details and a brief description about what you want to talk about.</p>
+
+                    <form>
+                        <input type="text " placeholder="firstname ">
+                        <input type="text " placeholder="lastname ">
+                        <input type="text " placholder="phone number ">
+                        <input type="email " placeholder="email ">
+                        <md-button class="md-raised ">Submit</md-button>
+                    </form>
+                    <md-button style="background:#448AFF " ui-sref="familyTree ">view full family tree</md-button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+
+
+</div>
+>
