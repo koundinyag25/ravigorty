@@ -17,22 +17,22 @@ app.config(($stateProvider, $urlRouterProvider) => {
     $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: '/src/home/home.html',
+            templateUrl: 'src/home/home.html',
             controller: HomeController
         })
         .state('familyTree', {
             url: '/familyTree',
-            templateUrl: '/src/family-tree/family-tree.html',
+            templateUrl: 'src/family-tree/family-tree.html',
             controller: FamilyTreeController
         })
         .state('gallery', {
             url: '/gallery',
-            templateUrl: '/src/gallery/gallery.html',
+            templateUrl: 'src/gallery/gallery.html',
             controller: GalleryController
         })
         .state('contactUs', {
             url: '/contactus',
-            templateUrl: '/src/contact-us/contact-us.html'
+            templateUrl: 'src/contact-us/contact-us.html'
         });
     $urlRouterProvider.otherwise('/');
 });
