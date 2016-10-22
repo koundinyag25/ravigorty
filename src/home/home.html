@@ -1,14 +1,10 @@
-<header style="display:block; z-index:2; postion:fixeds">
+<header style="display:block; z-index:2; postion:fixed">
     <md-toolbar style="background: #0097A7 ">
         <div layout=" row " layout-padding layout-align="space-between center ">
             <div>
             </div>
             <div class="nav-buttons ">
                 <md-button ng-repeat="button in buttons track by $index" ng-click="gotoSection(button.value)">{{button.name}}</md-button>
-                <!-- <md-button href=" ">Home</md-button>
-            <md-button ng-click="gotoSection(value) " value="family-tree ">Family Tree</md-button>
-            <md-button ui-sref="gallery ">Gallery</md-button>
-            <md-button ui-sref="contactUs ">Contact Us</md-button> -->
 
             </div>
         </div>
@@ -19,8 +15,8 @@
 
 <div layout="column">
 
-    <div style="height:600px; background:#00BCD4 " layout="row ">
-        <md-card style="height: 500px; width:487px; margin:20px; ">
+    <div style="height:550px; background:#00BCD4" layout="row">
+        <md-card style="height: 500px; width:487px; margin:20px;">
             <div style="background-image: url({{image}}); height: 500px; width:487px; "></div>
         </md-card>
         <md-divider style="height:510px; width:1px; background:#FFFFFF; margin-top:20px "></md-divider>
@@ -37,100 +33,127 @@
         </div>
 
     </div>
+    <!-- divider and fab -->
 
     <md-divider></md-divider>
-    <div layout="column " layout-align="center end ">
-        <md-button class="md-fab fab-class " style="background:#448AFF " value="family-tree " ng-click="gotoNextSection()"></md-button>
+    <div layout="column" layout-align="center end" style="background:#E91E63; ">
+        <md-button layout-align="center end" class="md-fab fab-class " style="background:#448AFF" value="family-tree" ng-click="gotoNextSection()">
+            <div style="height:40px; width:34px; background-image: url({{arrow}}); margin-left:4px;" value="family-tree"></div>
+        </md-button>
     </div>
 
     <!-- family tree section -->
-    <div id="family-tree" layout="column ">
-        <div layout="row ">
-            <div style="height:500px; width: 100% ">
+    <div id="family-tree" layout="column" style="background:#E91E63; color: #FFFFFF;">
+        <div layout="row">
+            <div style="height:650px; width: 100% ">
                 <section layout="row " layout-align="center center ">
 
-                    <div layout="column " style="height:400px; width:300px; margin:20px; " layout-wrap>
-                        <h2 class="heading-font " style="color: #808080 ">Family Tree</h2>
+                    <div layout="column " style="height:400px; width:300px; margin:20px;" layout-wrap>
+                        <h2 class="heading-font">Family Tree</h2>
                         <p>This is the where you can find who and what and where of the whole gorty ravi family are</p>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
                         </p>
                     </div>
-                    <md-divider style="height:400px; width: "></md-divider>
+                    <md-divider style="height:400px; background:#FFFFFF"></md-divider>
                     <div layout="column ">
-                        <div style="margin:20px; " layout="row ">
+                        <div style="margin:20px; " layout="row " layout-wrap>
                             <h3>Here there will be a snapshot of family tree</h3>
                         </div>
-                        <md-button style="background:#448AFF " ui-sref="familyTree ">view full family tree</md-button>
+                        <md-button style="background:#FFFFFF; color:black" ui-sref="familyTree ">view full family tree</md-button>
                     </div>
                 </section>
             </div>
         </div>
     </div>
+    <!-- divider and fab -->
     <md-divider></md-divider>
-    <div layout="column " layout-align="center end ">
+    <div layout="column " layout-align="center end" style="background: #009688">
+        <md-button layout-align="center center" class="md-fab fab-class" value="gallery" ng-click="gotoNextSection()">
+            <div value="gallery" style="height:40px; width:34px; background-image:url({{arrow}}); margin-left:4px;"></div>
+        </md-button>
 
-        <md-button class="md-fab fab-class" value="gallery" ng-click="gotoNextSection()"></md-button>
     </div>
 
     <!-- gallery section  -->
 
-    <div id="gallery" layout="row ">
-        <div style="height:700px; width: 100%">
-            <section layout="row " layout-align="center center ">
+    <div id="gallery" layout="row" style="background: #009688">
+        <div style="height:610px; width: 100%">
+            <section layout="row " layout-align="center center">
                 <div layout="column ">
-                    <div style="margin:20px;" layout="row">
+                    <div style="margin:20px;" layout="row" layout-wrap>
                         <h3>Here there will cards with preview photos</h3>
                     </div>
 
                 </div>
-                <md-divider style="height:400px; width:"></md-divider>
+                <md-divider style="height:400px; background:#FFFFFF"></md-divider>
                 <div layout="column " style="height:400px; width:300px; margin:20px;" layout-wrap>
-                    <h2 class="heading-font " style="color: #808080 ">Gallery</h2>
+                    <h2 class="heading-font " style="backgrond:#212121">Gallery</h2>
                     <p>This is the where you can find who and what and where of the whole gorty ravi family are</p>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
                     </p>
-                    <md-button style="background:#448AFF " ui-sref="familyTree ">view full family tree</md-button>
+                    <md-button class="md-raised" style="background:#FFFF" ui-sref="gallery">view full family tree</md-button>
                 </div>
             </section>
         </div>
     </div>
     <md-divider></md-divider>
-    <div layout="column" layout-align="center end">
+    <div layout="column" layout-align="center end" style="background:#673AB7">
 
-        <md-button ng-click="gotoNextSection()" class="md-fab fab-class" value="contactus"></md-button>
+        <md-button ng-click="gotoNextSection()" class="md-fab fab-class" value="contactus">
+            <div value="contactus" style="height:40px; width:34px; background-image:url({{arrow}}); margin-left:4px;"></div>
+        </md-button>
     </div>
 
     <!-- contact us section -->
 
-    <div id="contactus" layout="row">
-        <div style="height:700px; width: 100%">
-            <section layout="row " layout-align="center center">
-                <div layout="column ">
-                    <div style="margin:20px;" layout="row">
-                        <h3>Want to contact us?</h3>
-                    </div>
+    <div id="contactus" style="background:#673AB7; color:#FFFFFF">
 
-                </div>
-                <md-divider style="height:400px;"></md-divider>
-                <div layout="column " style="height:400px; width:300px; margin:20px;" layout-wrap>
-                    <h2 class="heading-font " style="color: #808080">Gallery</h2>
-                    <p>Please fill in the below form with your contact details and a brief description about what you want to talk about.</p>
+        <section layout-align="center center" layout="row" style="height:500">
 
-                    <form>
-                        <input type="text" placeholder="firstname">
-                        <input type="text" placeholder="lastname">
-                        <input type="text" placholder="phone number">
-                        <input type="email" placeholder="email">
-                        <md-button class="md-raised ">Submit</md-button>
-                    </form>
 
-                </div>
-            </section>
-        </div>
+            <div layout="column" style="margin:20px; width:300px;" layout-wrap>
+                <h2 class="heading-font " style="color:#FFFFFF ">Contact Us</h2>
+                <p>Please fill in the below form with your contact details and a brief description about what you want to talk about.</p>
+            </div>
+            <md-divider style="height:400px; background:#FFFFFF"></md-divider>
+            <form layout="column " style="background:#673AB7; height:500px; margin:30px;">
+                <md-input-container class="md-icon-float ">
+                    <!-- Use floating label instead of placeholder -->
+                    <label style="color:#FFFFFF ">First Name</label>
+                    <input style="border-bottom: 0.25px solid #FFFFFF " ng-model="user.name " type="text ">
+                </md-input-container>
+                <md-input-container class="md-icon-float ">
+                    <!-- Use floating label instead of placeholder -->
+                    <label style="color:#FFFFFF ">Last Name</label>
+                    <input style="border-bottom: 0.25px solid #FFFFFF " ng-model="user.name " type="text ">
+                </md-input-container>
+                <md-input-container class="md-icon-float ">
+                    <!-- Use floating label instead of placeholder -->
+                    <label style="color:#FFFFFF ">Phone Number</label>
+
+                    <input style="border-bottom: 0.25px solid #FFFFFF " ng-model="user.name " type="phone ">
+                </md-input-container>
+                <md-input-container class="md-icon-float ">
+                    <!-- Use floating label instead of placeholder -->
+                    <label style="color:#FFFFFF ">E-mail</label>
+                    <input style="border-bottom: 0.25px solid #FFFFFF " ng-model="user.name " type="email ">
+                </md-input-container>
+                <md-button class="md-raised ">Submit</md-button>
+            </form>
+        </section>
     </div>
-
 </div>
 
+<footer>
+    <md-toolbar style="background:#512DA8 " layout-align="center center ">
+        <p>copyrights@gavi-gorty foundation</p>
+        <md-list layout-sm style="font-size: 14px;">
+            <md-list-item>
+                Events and Calander
+            </md-list-item>
+            <md-list-item>
 
-
-</div>
+            </md-list-item>
+        </md-list>
+    </md-toolbar>
+</footer>

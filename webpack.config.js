@@ -19,14 +19,22 @@ module.exports = {
       },
       resolve:{
         moduleDirectories: ['node_modules','src'],
-        extensions:['','.js']
+        extensions:['','.js','.css']
       },
       module:{
-        loaders:[ {
+        loaders:[
+          {
           test: /\.js$/,
           exclude: /node_modules/,
           loaders:['babel?presets[]=es2015']
         }
+        // ,
+        // {
+        //     test: /\.css$/,
+        //     loaders: [
+        //         'style-loader','css-loader'
+        //     ]
+        // }
     ]
   },
   plugins :[
