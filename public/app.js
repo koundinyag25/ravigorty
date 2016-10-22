@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "159708ff8dd198eb4784"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "68830ca0587ae6293db4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -40246,19 +40246,19 @@
 	app.config(function ($stateProvider, $urlRouterProvider) {
 	    $stateProvider.state('home', {
 	        url: '/',
-	        templateUrl: '/src/home/home.html',
+	        templateUrl: 'src/home/home.html',
 	        controller: _homeController2.default
 	    }).state('familyTree', {
 	        url: '/familyTree',
-	        templateUrl: '/src/family-tree/family-tree.html',
+	        templateUrl: 'src/family-tree/family-tree.html',
 	        controller: _familytreeController2.default
 	    }).state('gallery', {
 	        url: '/gallery',
-	        templateUrl: '/src/gallery/gallery.html',
+	        templateUrl: 'src/gallery/gallery.html',
 	        controller: _galleryController2.default
 	    }).state('contactUs', {
 	        url: '/contactus',
-	        templateUrl: '/src/contact-us/contact-us.html'
+	        templateUrl: 'src/contact-us/contact-us.html'
 	    });
 	    $urlRouterProvider.otherwise('/');
 	});
