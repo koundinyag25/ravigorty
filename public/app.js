@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "68830ca0587ae6293db4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f8c49aa21e1307d73d7f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -40224,9 +40224,9 @@
 
 	__webpack_require__(88);
 
-	var _familytreeController = __webpack_require__(90);
+	var _familyTreeController = __webpack_require__(90);
 
-	var _familytreeController2 = _interopRequireDefault(_familytreeController);
+	var _familyTreeController2 = _interopRequireDefault(_familyTreeController);
 
 	var _galleryController = __webpack_require__(91);
 
@@ -40251,7 +40251,7 @@
 	    }).state('familyTree', {
 	        url: '/familyTree',
 	        templateUrl: 'src/family-tree/family-tree.html',
-	        controller: _familytreeController2.default
+	        controller: _familyTreeController2.default
 	    }).state('gallery', {
 	        url: '/gallery',
 	        templateUrl: 'src/gallery/gallery.html',
@@ -82484,170 +82484,189 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
-	function familyTreeController($scope) {
-
-	  $scope.message = "family tree controller";
-	  var treeData = [{
-	    "name": "Mahesh",
-	    "spouse": "Valli",
-	    //  "icon":"cart.png",
-	    "children": [{
-	      "name": "Megha",
-	      "spouse": "monkey",
-	      "children": [{
-	        "name": "boop1",
-	        "spouse": "Rekha",
+	function FamilytreeController() {
+	    var data = [{
+	        "name": "Mahesh",
+	        "parent": "null",
+	        "facebookId": 100001624730589,
+	        "spouse": "Valli",
+	        "spouseFbId": 100001624730589,
 	        "children": [{
-	          "name": "boop3",
-	          "children": [{
-	            "name": "boop jr"
-	          }, {
-	            "name": "beep jr"
-	          }]
-	        }]
-	      }, { "name": "beep2"
-	      }]
-	    }, {
-	      "name": "koundinya",
-	      "spouse": "Donkey",
-	      "children": [{
-	        "name": "boop",
-	        "spouse": "bandar"
-	      }, {
-	        "name": "beep",
-	        "spouse": "someone",
-	        children: [{ "name": "someone1"
+	            "name": "Megha",
+	            "parent": "Jules",
+	            "spouse": "Blah",
+	            "facebookId": 100001644911288,
+	            "spouseFbId": 100001644911288,
+	            "children": [{
+	                "name": "Carlton Lassiter",
+	                "parent": "Shawn Spencer",
+	                "facebookId": 100000539922051
+	            }, {
+	                "name": "Carlton Lassiter",
+	                "parent": "Shawn Spencer",
+	                "facebookId": 100000539922051
+	            }, {
+	                "name": "Carlton Lassiter",
+	                "parent": "Shawn Spencer",
+	                "facebookId": 100000539922051
+	            }]
 	        }, {
-	          "name": "someone2"
+	            "name": "koundinya",
+	            "parent": "Jules",
+	            "facebookId": 100000185556478,
+	            "spouse": "vamsi",
+	            "spouseFbId": 100000539922051,
+	            "children": [{
+	                "name": "Carlton Lassiter",
+	                "parent": "Shawn Spencer",
+	                "facebookId": 100000539922051,
+	                "children": [{
+	                    "name": "Carlton Lassiter",
+	                    "parent": "Shawn Spencer",
+	                    "facebookId": 100000539922051
+	                }, {
+	                    "name": "Carlton Lassiter",
+	                    "parent": "Shawn Spencer",
+	                    "facebookId": 100000539922051
+	                }, {
+	                    "name": "Carlton Lassiter",
+	                    "parent": "Shawn Spencer",
+	                    "facebookId": 100000539922051
+	                }]
+	            }]
 	        }]
-	      }, {
-	        "name": "boopiyaaaa",
-	        "spouse": "bandariyaa"
-	      }]
-	    }]
-	  }];
-
-	  // var treeData = [
-	  //   {
-	  //     "name": "Top Level",
-	  //     "parent": "null",
-	  //     "children": [
-	  //       {
-	  //         "name": "Level 2: A",
-	  //         "parent": "Top Level",
-	  //         "children": [
-	  //           {
-	  //             "name": "Son of A",
-	  //             "parent": "Level 2: A"
-	  //           },
-	  //           {
-	  //             "name": "Daughter of A",
-	  //             "parent": "Level 2: A"
-	  //           }
-	  //         ]
-	  //       },
-	  //       {
-	  //         "name": "Level 2: B",
-	  //         "parent": "Top Level"
-	  //       }
-	  //     ]
-	  //   }
-	  // ];
-
-	  // //************** Generate the tree diagram  *****************
-	  var margin = { top: 20, right: 120, bottom: 20, left: 120 },
-	      width = 960 - margin.right - margin.left,
-
-	  // height = 500 - margin.top - margin.bottom;
-	  height = 600;
-	  var i = 0;
-
-	  var tree = d3.layout.tree().size([height, width]);
-
-	  var diagonal = d3.svg.diagonal().projection(function (d) {
-	    return [d.y, d.x];
-	  });
-
-	  var svg = d3.select("#family-tree-div").append("svg").attr("width", width + margin.right + margin.left).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-	  var root = treeData[0];
-	  console.log(root);
-
-	  update(root);
-
-	  function update(source) {
-
-	    // Compute the new tree layout.
-	    var nodes = tree.nodes(root);
-	    var links = tree.links(nodes);
-	    console.log('links', links);
-	    // Normalize for fixed-depth.
-	    nodes.forEach(function (d) {
-	      d.y = d.depth * 180;
+	    }];
+	    var svg, root, margin;
+	    var width = 900;
+	    var height = 500;
+	    var margin = 50;
+	    var count = 0;
+	    var duration = 750;
+	    var tree = d3.layout.tree().size([height, width]);
+	    var diagonal = d3.svg.diagonal().projection(function (d) {
+	        return [d.y, d.x];
 	    });
 
-	    // Declare the nodesâ€¦
-	    var node = svg.selectAll("g.node").data(nodes, function (d) {
-	      return d.id || (d.id = ++i);
-	    });
-	    // Enter the nodes.
-	    var nodeEnter = node.enter().append("g")
-	    // .append("image").
-	    //  .attr("xlink:href",function(d){ return d.icon})
-	    .attr("class", "node").attr("transform", function (d) {
-	      return "translate(" + d.y + "," + d.x + ")";
-	    });
+	    var svg = d3.select('svg').attr('width', width + margin + margin).attr('height', height + margin + margin).attr('margin-left', 250).append('g').attr('transform', 'translate(' + margin + ',' + margin + ')');
 
-	    nodeEnter.append("circle").attr("r", 30).style("fill", "#fff");
+	    var root = data[0];
+	    root.x0 = height / 2;
+	    root.y0 = 0;
 
-	    // nodeEnterSpouse.append("circle")
-	    // .attr("r",30)
-	    // .style("fill",blue);
+	    var update = function update(source) {
+	        // Compute the new tree layout.
+	        var nodes = tree.nodes(root).reverse(),
+	            links = tree.links(nodes);
 
-	    nodeEnter.append("text").attr("x", function (d) {
-	      console.log("d.children", d.children);
-	      return d.children || d._children ? -13 : 13;
-	    }).attr("dy", ".35em").attr("text-anchor", function (d) {
-	      return d.children || d._children ? "end" : "start";
-	    }).text(function (d) {
-	      return d.name;
-	    }).style("fill-opacity", 1);
-
-	    // Declare the linksâ€¦
-	    var link = svg.selectAll("path.link").data(links, function (d) {
-	      return d.target.id;
-	    });
-
-	    // Enter the links.
-	    link.enter().insert("path", "g").attr("class", "link").attr("d", diagonal);
-
-	    nodes.forEach(function (data) {
-	      if (data.spouse) {
-	        console.log(data.name + "he/she has spouse");
-	        console.log(data.x, data.y);
-	        var x = data.x;
-	        var y = data.y;
-	        svg.append("circle").attr("r", 30).attr("class", "circle").attr("transform", function () {
-	          // return "translate(" + d.y + "," + d.x + ")";
-	          console.log(data.x, data.y);
-	          var x = data.x;
-	          var y = data.y + 50;
-	          console.log(data.name, x, y);
-	          tree.separation(function separation(a, b) {
-	            console.log("somelog", a, b);
-	            return a.parent == b.parent ? 1 : 1.5;
-	          });
-
-	          return "translate(" + y + "," + x + ")";
+	        // Normalize for fixed Depth
+	        nodes.forEach(function (d) {
+	            d.y = d.depth * 180;
 	        });
-	      }
-	    });
-	  }
+
+	        // Update the nodes...
+	        var node = svg.selectAll('g.node').data(nodes, function (d) {
+	            return d.id || (d.id = ++count);
+	        });
+
+	        //this is where the main problem for the spouses is solved...Thats just a guess...messiest code ever.
+	        var defs = svg.append("defs").attr("id", "imgdefs");
+
+	        var nodeEnter = node.enter().append('g').attr('class', 'node').attr('transform', function () {
+	            return 'translate(' + source.y0 + ',' + source.x0 + ')';
+	        });
+
+	        nodeEnter.append("image").attr("x", -20).attr("y", 30).attr("height", 50).attr("width", 50).attr("xlink:href", function (d) {
+	            if (d.spouse) {
+
+	                return "https://graph.facebook.com/" + d.spouseFbId + "/picture";
+	            }
+	        }).attr("clip-path", "url(#boop)");
+
+	        nodeEnter.append('image').attr('x', -20).attr('y', -20).attr('width', 50).attr('height', 50).attr("xlink:href", function (d) {
+	            return "https://graph.facebook.com/" + d.facebookId + "/picture";
+	        }).attr('class', 'image-border');
+	        // .attr("clip-path", "url(#clip)");
+	        nodeEnter.append('rect').attr('x', -20).attr('y', -20).attr('class', 'image-border').attr('width', 50).attr('height', 50);
+
+	        nodeEnter.append('text').attr('x', function (d) {
+	            return d.children || d._children ? 45 : 35;
+	        }).attr('y', function (d) {
+	            if (d.children) {
+	                return -30;
+	            }
+	            return;
+	        })
+	        // .attr('y',function() {
+	        //   return d.children || d._children ? 50: -50;
+	        // })
+	        .attr('dy', '2px').attr('text-anchor', function (d) {
+	            return d.children || d._children ? 'end' : 'start';
+	        }).text(function (d) {
+	            return d.name + " " + "and" + " " + d.spouse;
+	        }).style('fill-opacity', 1e-6);
+
+	        // Transition nodes to their new position
+	        var nodeUpdate = node.transition().duration(duration).attr('transform', function (d) {
+	            return 'translate(' + d.y + "," + d.x + ')';
+	        });
+
+	        nodeUpdate.select('circle').attr('r', 20);
+
+	        nodeUpdate.select('text').style('fill-opacity', 1).style('fill', '#FFFFFF');
+
+	        //Transition exiting nodes to the parents new position
+	        var nodeExit = node.exit().transition().duration(duration).attr('transform', function () {
+	            return 'translate(' + source.y + ',' + source.x + ')';
+	        }).remove();
+
+	        nodeExit.select('image').style('opacity', 1e-6);
+
+	        nodeExit.select('text').style('fill-opacity', 1e-6).style('fill', 'white');
+
+	        // Update the links...
+	        var link = svg.selectAll('path.link').data(links, function (d) {
+	            return d.target.id;
+	        });
+
+	        // Enter any new links at the parents previous position
+	        link.enter().insert('path', 'g').attr('class', 'link').attr('d', function () {
+	            var o = {
+	                x: source.x0,
+	                y: source.y0
+	            };
+	            return diagonal({
+	                source: o,
+	                target: o
+	            });
+	        }.bind(this));
+
+	        //Transition links to their new position.
+	        link.transition().duration(duration).attr('d', diagonal);
+
+	        // Transition exiting nodes to the parents new position.
+	        link.exit().transition().duration(duration).attr('d', function () {
+	            var o = {
+	                x: source.x,
+	                y: source.y
+	            };
+	            return diagonal({
+	                source: o,
+	                target: o
+	            });
+	        }.bind(this)).remove();
+
+	        // Stash the old positions for transition
+	        nodes.forEach(function (d) {
+	            d.x0 = d.x;
+	            d.y0 = d.y;
+	        });
+	    };
+	    update(root);
 	}
 
-	exports.default = familyTreeController;
+	exports.default = FamilytreeController;
 
 /***/ },
 /* 91 */
@@ -82676,6 +82695,7 @@
 	function HomeController($scope, $location, $anchorScroll, scrollService, $timeout) {
 	  $scope.image = "src/svg/home-img.jpg";
 	  $scope.arrow = "src/svg/arrow.png";
+
 	  $scope.buttons = [{ name: 'Home', value: 'home' }, { name: 'Family Tree', value: 'family-tree' }, { name: 'Gallery', value: 'gallery' }, { name: 'Contact Us', value: 'contactus' }];
 	  $scope.gotoSection = function (id) {
 	    $location.hash(id);
@@ -82684,6 +82704,7 @@
 
 	  $scope.gotoNextSection = function () {
 	    if (event.target.getAttribute("value") == "family-tree") {
+	      $scope.rotateClass = "rotate";
 	      $location.hash("family-tree");
 	      scrollService.scrollTo("family-tree");
 	    }

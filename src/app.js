@@ -6,7 +6,7 @@ import 'angular-ui-router';
 //import services;
 import './services';
 
-import FamilyTreeController from './family-tree/familytree.controller.js';
+import FamilyTreeController from './family-tree/family.tree.controller.js';
 import GalleryController from './gallery/gallery.controller.js';
 import HomeController from './home/home.controller.js';
 

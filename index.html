@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <style>
+        .rotate {
+            transform: rotate(180deg);
+        }
+
         .node circle {
             fill: #fff;
             stroke: steelblue;
@@ -43,17 +47,49 @@
             margin-bottom: -1px;
         }
 
+        .spouse {
+            border-radius: 50%;
+            background-color: blue;
+        }
+
         .fab-class {
             margin-top: -30px;
             margin-right: 100px;
             background: #00BCD4;
+        }
+
+        .imageClass {
+            border-radius: 100%;
+        }
+
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: 60px;
+            height: 28px;
+            padding: 2px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .image-border {
+            fill: transparent;
+            stroke: blue;
+            shape-rendering: crispEdges;
+        }
+
+        .text-svg-class {
+            color: #FFFFF;
         }
     </style>
 </head>
 
 <body>
     <div ui-view></div>
-    <script type="text/javascript" src="./public/app.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 </body>
 
 </html>

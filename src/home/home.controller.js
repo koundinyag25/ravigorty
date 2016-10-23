@@ -1,6 +1,7 @@
 function HomeController($scope,$location,$anchorScroll,scrollService,$timeout){
   $scope.image = "src/svg/home-img.jpg";
-  $scope.arrow="src/svg/arrow.png"
+  $scope.arrow="src/svg/arrow.png";
+
 $scope.buttons = [ { name: 'Home', value: 'home'},{ name:'Family Tree', value:'family-tree'},{ name:'Gallery', value: 'gallery'},{name:'Contact Us', value:'contactus'}];
  $scope.gotoSection = function(id) {
       $location.hash(id);
@@ -9,6 +10,7 @@ $scope.buttons = [ { name: 'Home', value: 'home'},{ name:'Family Tree', value:'f
 
  $scope.gotoNextSection = function(){
       if(event.target.getAttribute("value") == "family-tree"){
+        $scope.rotateClass = "rotate";
         $location.hash("family-tree");
           scrollService.scrollTo("family-tree");
       }
